@@ -1,0 +1,22 @@
+THIS_SCRIPT=$(basename -- "$0")
+WORKDIR=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+
+OUTPUT_REPOSITORY_FOLDER="${WORKDIR}/../${REPOSITORY_FOLDER}"
+OUTPUT_DEPENDENCIES_FOLDER="${WORKDIR}/../${DEPENDENCIES_FOLDER}"
+OUTPUT_DIFF_FILE="${WORKDIR}/../diff.csv"
+
+if [ -d "$OUTPUT_REPOSITORY_FOLDER" ]; then
+  echo "deleting ${OUTPUT_REPOSITORY_FOLDER}"
+  rm -rf ${OUTPUT_REPOSITORY_FOLDER}
+fi
+
+if [ -d "$OUTPUT_DEPENDENCIES_FOLDER" ]; then
+  echo "deleting ${OUTPUT_DEPENDENCIES_FOLDER}"
+  rm -rf ${OUTPUT_DEPENDENCIES_FOLDER}
+fi
+
+
+if [ -f "${OUTPUT_DIFF_FILE}" ]; then
+  echo "deleting ${OUTPUT_DIFF_FILE}"
+  rm -rf ${OUTPUT_DIFF_FILE}
+fi
